@@ -1,0 +1,17 @@
+name: DivineItemsRPG
+author: Marcel
+version: 0.0.1
+description: Custom Items and Enchants
+
+main: de.divineitems.main.DivineItemsMain
+
+commands:
+  itemgive:
+    usage: /<command>
+    description: Get an Custom Item
+  showItems:
+    usage: /<command>
+    description: Show all loaded Items
+  getBook:
+    usage: /<command>
+    description: Get an custom enchanted book
