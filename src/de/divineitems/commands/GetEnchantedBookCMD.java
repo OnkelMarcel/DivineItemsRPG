@@ -5,7 +5,8 @@ import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 
-import de.divineitems.enchantment.CustomEnchantment;
+import de.divineitems.main.DivineItemsMain;
+import de.divineitems.utils.Utils;
 
 public class GetEnchantedBookCMD implements CommandExecutor {
 
@@ -13,14 +14,12 @@ public class GetEnchantedBookCMD implements CommandExecutor {
 	public boolean onCommand(CommandSender cs, Command cmd, String label, String[] args) {
 
 		if (cs instanceof Player) {
-			Player p = (Player) cs;
 			if (args.length > 0) {
-				if (CustomEnchantment.names.containsKey(args[0])) {
-					p.getInventory().addItem(CustomEnchantment.names.get(args[0]).getItem());
-					p.updateInventory();
-				} else {
-					p.sendMessage("Dieses Buch gibt es nicht!");
-				}
+				Player p = (Player) cs;
+				p.getInventory().addItem(DivineItemsMain.EM.getEnchantment(args[1]).getBook());
+				p.updateInventory();
+			} else {
+				cs.sendMessage(Utils.ERROR + "Zu wenig Argumente!");
 			}
 		}
 		
