@@ -79,7 +79,7 @@ public class CustomEnchantment {
 		this.lore = lore;
 	}
 
-	public EnchantConfig getIc() {
+	public EnchantConfig getEc() {
 		return ec;
 	}
 
