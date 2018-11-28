@@ -20,11 +20,18 @@ public class AddEnchToItemEvent implements Listener {
 				if (DivineItemsMain.IM.contains(e.getCurrentItem())) {
 					toEnchant = e.getCurrentItem();
 				} else {
-					
+					return;
 				}
 			} else {
-				DivineItemsMain.EM.getEnchantment(e.getCurrentItem().getItemMeta().getDisplayName()).addCustomEnchant(
-						e.getCurrentItem().getItemMeta().getDisplayName(), (Player) e.getWhoClicked(), toEnchant);
+				if (DivineItemsMain.EM.contains(e.getCurrentItem())) {
+					DivineItemsMain.EM.getEnchantment(e.getCurrentItem().getItemMeta().getDisplayName())
+							.addCustomEnchant(e.getCurrentItem().getItemMeta().getDisplayName(),
+									(Player) e.getWhoClicked(), toEnchant);
+					System.out.println("true");
+				} else {
+					System.out.println("false");
+					return;
+				}
 			}
 		}
 	}
